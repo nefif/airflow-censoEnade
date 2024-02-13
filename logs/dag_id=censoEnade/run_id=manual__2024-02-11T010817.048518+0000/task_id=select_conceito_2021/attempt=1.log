@@ -1,0 +1,34 @@
+[2024-02-11T01:08:26.417+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: censoEnade.select_conceito_2021 manual__2024-02-11T01:08:17.048518+00:00 [queued]>
+[2024-02-11T01:08:26.431+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: censoEnade.select_conceito_2021 manual__2024-02-11T01:08:17.048518+00:00 [queued]>
+[2024-02-11T01:08:26.432+0000] {taskinstance.py:2170} INFO - Starting attempt 1 of 1
+[2024-02-11T01:08:26.459+0000] {taskinstance.py:2191} INFO - Executing <Task(PythonOperator): select_conceito_2021> on 2024-02-11 01:08:17.048518+00:00
+[2024-02-11T01:08:26.469+0000] {standard_task_runner.py:60} INFO - Started process 105 to run task
+[2024-02-11T01:08:26.473+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'censoEnade', 'select_conceito_2021', 'manual__2024-02-11T01:08:17.048518+00:00', '--job-id', '331', '--raw', '--subdir', 'DAGS_FOLDER/censoEnade.py', '--cfg-path', '/tmp/tmp4ecvgiwu']
+[2024-02-11T01:08:26.474+0000] {standard_task_runner.py:88} INFO - Job 331: Subtask select_conceito_2021
+[2024-02-11T01:08:26.538+0000] {task_command.py:423} INFO - Running <TaskInstance: censoEnade.select_conceito_2021 manual__2024-02-11T01:08:17.048518+00:00 [running]> on host 7e5b5e202339
+[2024-02-11T01:08:26.639+0000] {taskinstance.py:2480} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Néfi Fernandes' AIRFLOW_CTX_DAG_ID='censoEnade' AIRFLOW_CTX_TASK_ID='select_conceito_2021' AIRFLOW_CTX_EXECUTION_DATE='2024-02-11T01:08:17.048518+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-02-11T01:08:17.048518+00:00'
+[2024-02-11T01:08:26.881+0000] {taskinstance.py:2698} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/taskinstance.py", line 433, in _execute_task
+    result = execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 199, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 216, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/censoEnade.py", line 92, in select_data_from_xlsx
+    df = pd.read_excel(input_file, sheet_name=sheet_name)
+  File "/home/airflow/.local/lib/python3.8/site-packages/pandas/io/excel/_base.py", line 486, in read_excel
+    data = io.parse(
+  File "/home/airflow/.local/lib/python3.8/site-packages/pandas/io/excel/_base.py", line 1551, in parse
+    return self._reader.parse(
+  File "/home/airflow/.local/lib/python3.8/site-packages/pandas/io/excel/_base.py", line 746, in parse
+    sheet = self.get_sheet_by_name(asheetname)
+  File "/home/airflow/.local/lib/python3.8/site-packages/pandas/io/excel/_openpyxl.py", line 569, in get_sheet_by_name
+    self.raise_if_bad_sheet_by_name(name)
+  File "/home/airflow/.local/lib/python3.8/site-packages/pandas/io/excel/_base.py", line 597, in raise_if_bad_sheet_by_name
+    raise ValueError(f"Worksheet named '{name}' not found")
+ValueError: Worksheet named 'concecito_Enade_2021' not found
+[2024-02-11T01:08:26.893+0000] {taskinstance.py:1138} INFO - Marking task as FAILED. dag_id=censoEnade, task_id=select_conceito_2021, execution_date=20240211T010817, start_date=20240211T010826, end_date=20240211T010826
+[2024-02-11T01:08:26.912+0000] {standard_task_runner.py:107} ERROR - Failed to execute job 331 for task select_conceito_2021 (Worksheet named 'concecito_Enade_2021' not found; 105)
+[2024-02-11T01:08:26.927+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 1
+[2024-02-11T01:08:26.945+0000] {taskinstance.py:3280} INFO - 0 downstream tasks scheduled from follow-on schedule check

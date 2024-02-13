@@ -1,0 +1,68 @@
+[2024-02-10T02:16:52.097+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: censoEnade.download_zip_file manual__2024-02-10T02:16:49.933151+00:00 [queued]>
+[2024-02-10T02:16:52.109+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: censoEnade.download_zip_file manual__2024-02-10T02:16:49.933151+00:00 [queued]>
+[2024-02-10T02:16:52.110+0000] {taskinstance.py:2170} INFO - Starting attempt 1 of 1
+[2024-02-10T02:16:52.133+0000] {taskinstance.py:2191} INFO - Executing <Task(PythonOperator): download_zip_file> on 2024-02-10 02:16:49.933151+00:00
+[2024-02-10T02:16:52.142+0000] {standard_task_runner.py:60} INFO - Started process 590 to run task
+[2024-02-10T02:16:52.146+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'censoEnade', 'download_zip_file', 'manual__2024-02-10T02:16:49.933151+00:00', '--job-id', '121', '--raw', '--subdir', 'DAGS_FOLDER/censoEnade.py', '--cfg-path', '/tmp/tmp5nnhitaa']
+[2024-02-10T02:16:52.149+0000] {standard_task_runner.py:88} INFO - Job 121: Subtask download_zip_file
+[2024-02-10T02:16:52.222+0000] {task_command.py:423} INFO - Running <TaskInstance: censoEnade.download_zip_file manual__2024-02-10T02:16:49.933151+00:00 [running]> on host 366ff31d219b
+[2024-02-10T02:16:52.327+0000] {taskinstance.py:2480} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Néfi Fernandes' AIRFLOW_CTX_DAG_ID='censoEnade' AIRFLOW_CTX_TASK_ID='download_zip_file' AIRFLOW_CTX_EXECUTION_DATE='2024-02-10T02:16:49.933151+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-02-10T02:16:49.933151+00:00'
+[2024-02-10T02:16:53.642+0000] {taskinstance.py:2698} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/urllib3/connectionpool.py", line 715, in urlopen
+    httplib_response = self._make_request(
+  File "/home/airflow/.local/lib/python3.8/site-packages/urllib3/connectionpool.py", line 404, in _make_request
+    self._validate_conn(conn)
+  File "/home/airflow/.local/lib/python3.8/site-packages/urllib3/connectionpool.py", line 1058, in _validate_conn
+    conn.connect()
+  File "/home/airflow/.local/lib/python3.8/site-packages/urllib3/connection.py", line 419, in connect
+    self.sock = ssl_wrap_socket(
+  File "/home/airflow/.local/lib/python3.8/site-packages/urllib3/util/ssl_.py", line 449, in ssl_wrap_socket
+    ssl_sock = _ssl_wrap_socket_impl(
+  File "/home/airflow/.local/lib/python3.8/site-packages/urllib3/util/ssl_.py", line 493, in _ssl_wrap_socket_impl
+    return ssl_context.wrap_socket(sock, server_hostname=server_hostname)
+  File "/usr/local/lib/python3.8/ssl.py", line 500, in wrap_socket
+    return self.sslsocket_class._create(
+  File "/usr/local/lib/python3.8/ssl.py", line 1073, in _create
+    self.do_handshake()
+  File "/usr/local/lib/python3.8/ssl.py", line 1342, in do_handshake
+    self._sslobj.do_handshake()
+ssl.SSLCertVerificationError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1131)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/requests/adapters.py", line 486, in send
+    resp = conn.urlopen(
+  File "/home/airflow/.local/lib/python3.8/site-packages/urllib3/connectionpool.py", line 799, in urlopen
+    retries = retries.increment(
+  File "/home/airflow/.local/lib/python3.8/site-packages/urllib3/util/retry.py", line 592, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='download.inep.gov.br', port=443): Max retries exceeded with url: /microdados/microdados_enade_2022_LGPD.7z (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1131)')))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/taskinstance.py", line 433, in _execute_task
+    result = execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 199, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 216, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/censoEnade.py", line 49, in download_zip_file
+    response = requests.get(url)
+  File "/home/airflow/.local/lib/python3.8/site-packages/requests/api.py", line 73, in get
+    return request("get", url, params=params, **kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/requests/api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/requests/adapters.py", line 517, in send
+    raise SSLError(e, request=request)
+requests.exceptions.SSLError: HTTPSConnectionPool(host='download.inep.gov.br', port=443): Max retries exceeded with url: /microdados/microdados_enade_2022_LGPD.7z (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1131)')))
+[2024-02-10T02:16:53.674+0000] {taskinstance.py:1138} INFO - Marking task as FAILED. dag_id=censoEnade, task_id=download_zip_file, execution_date=20240210T021649, start_date=20240210T021652, end_date=20240210T021653
+[2024-02-10T02:16:53.698+0000] {standard_task_runner.py:107} ERROR - Failed to execute job 121 for task download_zip_file (HTTPSConnectionPool(host='download.inep.gov.br', port=443): Max retries exceeded with url: /microdados/microdados_enade_2022_LGPD.7z (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1131)'))); 590)
+[2024-02-10T02:16:53.725+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 1
+[2024-02-10T02:16:53.773+0000] {taskinstance.py:3280} INFO - 0 downstream tasks scheduled from follow-on schedule check

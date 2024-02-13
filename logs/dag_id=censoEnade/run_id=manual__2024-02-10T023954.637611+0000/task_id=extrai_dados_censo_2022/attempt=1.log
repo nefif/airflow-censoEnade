@@ -1,0 +1,13 @@
+[2024-02-10T02:40:00.825+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: censoEnade.extrai_dados_censo_2022 manual__2024-02-10T02:39:54.637611+00:00 [queued]>
+[2024-02-10T02:40:00.849+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: censoEnade.extrai_dados_censo_2022 manual__2024-02-10T02:39:54.637611+00:00 [queued]>
+[2024-02-10T02:40:00.851+0000] {taskinstance.py:2170} INFO - Starting attempt 1 of 1
+[2024-02-10T02:40:00.891+0000] {taskinstance.py:2191} INFO - Executing <Task(PythonOperator): extrai_dados_censo_2022> on 2024-02-10 02:39:54.637611+00:00
+[2024-02-10T02:40:00.903+0000] {standard_task_runner.py:60} INFO - Started process 254 to run task
+[2024-02-10T02:40:00.911+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'censoEnade', 'extrai_dados_censo_2022', 'manual__2024-02-10T02:39:54.637611+00:00', '--job-id', '160', '--raw', '--subdir', 'DAGS_FOLDER/censoEnade.py', '--cfg-path', '/tmp/tmpu9sjtnab']
+[2024-02-10T02:40:00.923+0000] {standard_task_runner.py:88} INFO - Job 160: Subtask extrai_dados_censo_2022
+[2024-02-10T02:40:01.071+0000] {task_command.py:423} INFO - Running <TaskInstance: censoEnade.extrai_dados_censo_2022 manual__2024-02-10T02:39:54.637611+00:00 [running]> on host 7e5b5e202339
+[2024-02-10T02:40:01.240+0000] {taskinstance.py:2480} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Néfi Fernandes' AIRFLOW_CTX_DAG_ID='censoEnade' AIRFLOW_CTX_TASK_ID='extrai_dados_censo_2022' AIRFLOW_CTX_EXECUTION_DATE='2024-02-10T02:39:54.637611+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-02-10T02:39:54.637611+00:00'
+[2024-02-10T02:40:01.242+0000] {python.py:201} INFO - Done. Returned value was: None
+[2024-02-10T02:40:01.261+0000] {taskinstance.py:1138} INFO - Marking task as SUCCESS. dag_id=censoEnade, task_id=extrai_dados_censo_2022, execution_date=20240210T023954, start_date=20240210T024000, end_date=20240210T024001
+[2024-02-10T02:40:01.324+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 0
+[2024-02-10T02:40:01.377+0000] {taskinstance.py:3280} INFO - 0 downstream tasks scheduled from follow-on schedule check

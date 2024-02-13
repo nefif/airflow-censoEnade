@@ -1,0 +1,16 @@
+[2024-02-11T03:21:14.814+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: censoEnade.download_conceito_2021 manual__2024-02-11T03:21:10.662778+00:00 [queued]>
+[2024-02-11T03:21:14.834+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: censoEnade.download_conceito_2021 manual__2024-02-11T03:21:10.662778+00:00 [queued]>
+[2024-02-11T03:21:14.835+0000] {taskinstance.py:2170} INFO - Starting attempt 1 of 1
+[2024-02-11T03:21:14.870+0000] {taskinstance.py:2191} INFO - Executing <Task(PythonOperator): download_conceito_2021> on 2024-02-11 03:21:10.662778+00:00
+[2024-02-11T03:21:14.881+0000] {standard_task_runner.py:60} INFO - Started process 541 to run task
+[2024-02-11T03:21:14.887+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'censoEnade', 'download_conceito_2021', 'manual__2024-02-11T03:21:10.662778+00:00', '--job-id', '627', '--raw', '--subdir', 'DAGS_FOLDER/censoEnade.py', '--cfg-path', '/tmp/tmpt7a4t6iw']
+[2024-02-11T03:21:14.889+0000] {standard_task_runner.py:88} INFO - Job 627: Subtask download_conceito_2021
+[2024-02-11T03:21:14.976+0000] {task_command.py:423} INFO - Running <TaskInstance: censoEnade.download_conceito_2021 manual__2024-02-11T03:21:10.662778+00:00 [running]> on host 19f7d6a2ee45
+[2024-02-11T03:21:15.134+0000] {taskinstance.py:2480} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Néfi Fernandes' AIRFLOW_CTX_DAG_ID='censoEnade' AIRFLOW_CTX_TASK_ID='download_conceito_2021' AIRFLOW_CTX_EXECUTION_DATE='2024-02-11T03:21:10.662778+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-02-11T03:21:10.662778+00:00'
+[2024-02-11T03:21:15.361+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.8/site-packages/urllib3/connectionpool.py:1061: InsecureRequestWarning: Unverified HTTPS request is being made to host 'download.inep.gov.br'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/1.26.x/advanced-usage.html#ssl-warnings
+  warnings.warn(
+
+[2024-02-11T03:21:16.949+0000] {python.py:201} INFO - Done. Returned value was: /opt/***/dataset/conceito_enade_2021.xlsx
+[2024-02-11T03:21:16.978+0000] {taskinstance.py:1138} INFO - Marking task as SUCCESS. dag_id=censoEnade, task_id=download_conceito_2021, execution_date=20240211T032110, start_date=20240211T032114, end_date=20240211T032116
+[2024-02-11T03:21:17.029+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 0
+[2024-02-11T03:21:17.060+0000] {taskinstance.py:3280} INFO - 1 downstream tasks scheduled from follow-on schedule check

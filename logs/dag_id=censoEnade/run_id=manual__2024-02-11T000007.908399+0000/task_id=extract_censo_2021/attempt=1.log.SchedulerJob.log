@@ -1,0 +1,1 @@
+[2024-02-11T00:00:10.951+0000] {scheduler_job_runner.py:781} ERROR - Executor reports task instance <TaskInstance: censoEnade.extract_censo_2021 manual__2024-02-11T00:00:07.908399+00:00 [queued]> finished (success) although the task says it's queued. (Info: None) Was the task killed externally?

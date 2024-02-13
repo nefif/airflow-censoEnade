@@ -1,0 +1,16 @@
+[2024-02-11T01:59:22.898+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: censoEnade.download_censo_2021 manual__2024-02-11T01:59:17.875132+00:00 [queued]>
+[2024-02-11T01:59:22.918+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: censoEnade.download_censo_2021 manual__2024-02-11T01:59:17.875132+00:00 [queued]>
+[2024-02-11T01:59:22.918+0000] {taskinstance.py:2170} INFO - Starting attempt 1 of 1
+[2024-02-11T01:59:22.989+0000] {taskinstance.py:2191} INFO - Executing <Task(PythonOperator): download_censo_2021> on 2024-02-11 01:59:17.875132+00:00
+[2024-02-11T01:59:22.996+0000] {standard_task_runner.py:60} INFO - Started process 1294 to run task
+[2024-02-11T01:59:22.999+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'censoEnade', 'download_censo_2021', 'manual__2024-02-11T01:59:17.875132+00:00', '--job-id', '473', '--raw', '--subdir', 'DAGS_FOLDER/censoEnade.py', '--cfg-path', '/tmp/tmpl7gjcy0l']
+[2024-02-11T01:59:23.001+0000] {standard_task_runner.py:88} INFO - Job 473: Subtask download_censo_2021
+[2024-02-11T01:59:23.098+0000] {task_command.py:423} INFO - Running <TaskInstance: censoEnade.download_censo_2021 manual__2024-02-11T01:59:17.875132+00:00 [running]> on host 7e5b5e202339
+[2024-02-11T01:59:23.218+0000] {taskinstance.py:2480} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Néfi Fernandes' AIRFLOW_CTX_DAG_ID='censoEnade' AIRFLOW_CTX_TASK_ID='download_censo_2021' AIRFLOW_CTX_EXECUTION_DATE='2024-02-11T01:59:17.875132+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-02-11T01:59:17.875132+00:00'
+[2024-02-11T01:59:23.430+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.8/site-packages/urllib3/connectionpool.py:1061: InsecureRequestWarning: Unverified HTTPS request is being made to host 'download.inep.gov.br'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/1.26.x/advanced-usage.html#ssl-warnings
+  warnings.warn(
+
+[2024-02-11T01:59:38.695+0000] {python.py:201} INFO - Done. Returned value was: /opt/***/dataset/microdados_censo_da_educacao_superior_2021.zip
+[2024-02-11T01:59:38.753+0000] {taskinstance.py:1138} INFO - Marking task as SUCCESS. dag_id=censoEnade, task_id=download_censo_2021, execution_date=20240211T015917, start_date=20240211T015922, end_date=20240211T015938
+[2024-02-11T01:59:38.834+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 0
+[2024-02-11T01:59:38.878+0000] {taskinstance.py:3280} INFO - 1 downstream tasks scheduled from follow-on schedule check

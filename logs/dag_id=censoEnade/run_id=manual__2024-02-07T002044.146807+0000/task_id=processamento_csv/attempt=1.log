@@ -1,0 +1,24 @@
+[2024-02-07T00:20:46.703+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: censoEnade.processamento_csv manual__2024-02-07T00:20:44.146807+00:00 [queued]>
+[2024-02-07T00:20:46.712+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: censoEnade.processamento_csv manual__2024-02-07T00:20:44.146807+00:00 [queued]>
+[2024-02-07T00:20:46.712+0000] {taskinstance.py:2170} INFO - Starting attempt 1 of 1
+[2024-02-07T00:20:46.730+0000] {taskinstance.py:2191} INFO - Executing <Task(PythonOperator): processamento_csv> on 2024-02-07 00:20:44.146807+00:00
+[2024-02-07T00:20:46.737+0000] {standard_task_runner.py:60} INFO - Started process 1090 to run task
+[2024-02-07T00:20:46.741+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'censoEnade', 'processamento_csv', 'manual__2024-02-07T00:20:44.146807+00:00', '--job-id', '36', '--raw', '--subdir', 'DAGS_FOLDER/censoEnade.py', '--cfg-path', '/tmp/tmplc18u8m4']
+[2024-02-07T00:20:46.743+0000] {standard_task_runner.py:88} INFO - Job 36: Subtask processamento_csv
+[2024-02-07T00:20:46.811+0000] {task_command.py:423} INFO - Running <TaskInstance: censoEnade.processamento_csv manual__2024-02-07T00:20:44.146807+00:00 [running]> on host 113c724a1462
+[2024-02-07T00:20:46.918+0000] {taskinstance.py:2480} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Néfi Fernandes' AIRFLOW_CTX_DAG_ID='censoEnade' AIRFLOW_CTX_TASK_ID='processamento_csv' AIRFLOW_CTX_EXECUTION_DATE='2024-02-07T00:20:44.146807+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-02-07T00:20:44.146807+00:00'
+[2024-02-07T00:20:46.921+0000] {taskinstance.py:2698} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/taskinstance.py", line 433, in _execute_task
+    result = execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 199, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 216, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/censoEnade.py", line 43, in processar_arquivo_csv
+    with open(caminho_arquivo, newline='') as arquivo_csv:
+FileNotFoundError: [Errno 2] No such file or directory: 'C:\x07irflow-docker\\dataset\\microdados2022_arq1.txt'
+[2024-02-07T00:20:46.935+0000] {taskinstance.py:1138} INFO - Marking task as FAILED. dag_id=censoEnade, task_id=processamento_csv, execution_date=20240207T002044, start_date=20240207T002046, end_date=20240207T002046
+[2024-02-07T00:20:46.955+0000] {standard_task_runner.py:107} ERROR - Failed to execute job 36 for task processamento_csv ([Errno 2] No such file or directory: 'C:\x07irflow-docker\\dataset\\microdados2022_arq1.txt'; 1090)
+[2024-02-07T00:20:46.993+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 1
+[2024-02-07T00:20:47.017+0000] {taskinstance.py:3280} INFO - 0 downstream tasks scheduled from follow-on schedule check

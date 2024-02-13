@@ -1,0 +1,22 @@
+[2024-02-11T02:29:42.101+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: censoEnade.rename_censo_dir manual__2024-02-11T02:29:14.770248+00:00 [queued]>
+[2024-02-11T02:29:42.112+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: censoEnade.rename_censo_dir manual__2024-02-11T02:29:14.770248+00:00 [queued]>
+[2024-02-11T02:29:42.113+0000] {taskinstance.py:2170} INFO - Starting attempt 1 of 1
+[2024-02-11T02:29:42.137+0000] {taskinstance.py:2191} INFO - Executing <Task(PythonOperator): rename_censo_dir> on 2024-02-11 02:29:14.770248+00:00
+[2024-02-11T02:29:42.144+0000] {standard_task_runner.py:60} INFO - Started process 1836 to run task
+[2024-02-11T02:29:42.147+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'censoEnade', 'rename_censo_dir', 'manual__2024-02-11T02:29:14.770248+00:00', '--job-id', '506', '--raw', '--subdir', 'DAGS_FOLDER/censoEnade.py', '--cfg-path', '/tmp/tmpf54epsfe']
+[2024-02-11T02:29:42.148+0000] {standard_task_runner.py:88} INFO - Job 506: Subtask rename_censo_dir
+[2024-02-11T02:29:42.199+0000] {task_command.py:423} INFO - Running <TaskInstance: censoEnade.rename_censo_dir manual__2024-02-11T02:29:14.770248+00:00 [running]> on host 7e5b5e202339
+[2024-02-11T02:29:42.289+0000] {taskinstance.py:2480} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Néfi Fernandes' AIRFLOW_CTX_DAG_ID='censoEnade' AIRFLOW_CTX_TASK_ID='rename_censo_dir' AIRFLOW_CTX_EXECUTION_DATE='2024-02-11T02:29:14.770248+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-02-11T02:29:14.770248+00:00'
+[2024-02-11T02:29:42.292+0000] {taskinstance.py:2698} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/taskinstance.py", line 433, in _execute_task
+    result = execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 199, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 216, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+TypeError: rename_censo_dir() missing 1 required positional argument: 'year'
+[2024-02-11T02:29:42.300+0000] {taskinstance.py:1138} INFO - Marking task as FAILED. dag_id=censoEnade, task_id=rename_censo_dir, execution_date=20240211T022914, start_date=20240211T022942, end_date=20240211T022942
+[2024-02-11T02:29:42.315+0000] {standard_task_runner.py:107} ERROR - Failed to execute job 506 for task rename_censo_dir (rename_censo_dir() missing 1 required positional argument: 'year'; 1836)
+[2024-02-11T02:29:42.360+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 1
+[2024-02-11T02:29:42.384+0000] {taskinstance.py:3280} INFO - 0 downstream tasks scheduled from follow-on schedule check

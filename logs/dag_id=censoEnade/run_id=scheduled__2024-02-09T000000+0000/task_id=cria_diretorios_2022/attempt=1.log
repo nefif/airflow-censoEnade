@@ -1,0 +1,16 @@
+[2024-02-10T01:11:39.391+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: censoEnade.cria_diretorios_2022 scheduled__2024-02-09T00:00:00+00:00 [queued]>
+[2024-02-10T01:11:39.402+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: censoEnade.cria_diretorios_2022 scheduled__2024-02-09T00:00:00+00:00 [queued]>
+[2024-02-10T01:11:39.402+0000] {taskinstance.py:2170} INFO - Starting attempt 1 of 1
+[2024-02-10T01:11:39.427+0000] {taskinstance.py:2191} INFO - Executing <Task(BashOperator): cria_diretorios_2022> on 2024-02-09 00:00:00+00:00
+[2024-02-10T01:11:39.436+0000] {standard_task_runner.py:60} INFO - Started process 67 to run task
+[2024-02-10T01:11:39.440+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'censoEnade', 'cria_diretorios_2022', 'scheduled__2024-02-09T00:00:00+00:00', '--job-id', '103', '--raw', '--subdir', 'DAGS_FOLDER/censoEnade.py', '--cfg-path', '/tmp/tmpkhpul6zy']
+[2024-02-10T01:11:39.444+0000] {standard_task_runner.py:88} INFO - Job 103: Subtask cria_diretorios_2022
+[2024-02-10T01:11:39.514+0000] {task_command.py:423} INFO - Running <TaskInstance: censoEnade.cria_diretorios_2022 scheduled__2024-02-09T00:00:00+00:00 [running]> on host 366ff31d219b
+[2024-02-10T01:11:39.618+0000] {taskinstance.py:2480} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Néfi Fernandes' AIRFLOW_CTX_DAG_ID='censoEnade' AIRFLOW_CTX_TASK_ID='cria_diretorios_2022' AIRFLOW_CTX_EXECUTION_DATE='2024-02-09T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-02-09T00:00:00+00:00'
+[2024-02-10T01:11:39.622+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2024-02-10T01:11:39.624+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'mkdir -p /opt/***/datalake/censoEnade/bronze/date=2024-02-09 /opt/***/datalake/censoEnade/silver/date=2024-02-09 /opt/***/datalake/censoEnade/gold/date=2024-02-09']
+[2024-02-10T01:11:39.639+0000] {subprocess.py:86} INFO - Output:
+[2024-02-10T01:11:39.643+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2024-02-10T01:11:39.678+0000] {taskinstance.py:1138} INFO - Marking task as SUCCESS. dag_id=censoEnade, task_id=cria_diretorios_2022, execution_date=20240209T000000, start_date=20240210T011139, end_date=20240210T011139
+[2024-02-10T01:11:39.734+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 0
+[2024-02-10T01:11:39.761+0000] {taskinstance.py:3280} INFO - 3 downstream tasks scheduled from follow-on schedule check

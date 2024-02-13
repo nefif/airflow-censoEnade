@@ -1,0 +1,24 @@
+[2024-02-11T02:00:15.027+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: censoEnade.rename_txt_to_csv manual__2024-02-11T01:59:17.875132+00:00 [queued]>
+[2024-02-11T02:00:15.039+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: censoEnade.rename_txt_to_csv manual__2024-02-11T01:59:17.875132+00:00 [queued]>
+[2024-02-11T02:00:15.040+0000] {taskinstance.py:2170} INFO - Starting attempt 1 of 1
+[2024-02-11T02:00:15.063+0000] {taskinstance.py:2191} INFO - Executing <Task(PythonOperator): rename_txt_to_csv> on 2024-02-11 01:59:17.875132+00:00
+[2024-02-11T02:00:15.070+0000] {standard_task_runner.py:60} INFO - Started process 1320 to run task
+[2024-02-11T02:00:15.074+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'censoEnade', 'rename_txt_to_csv', 'manual__2024-02-11T01:59:17.875132+00:00', '--job-id', '479', '--raw', '--subdir', 'DAGS_FOLDER/censoEnade.py', '--cfg-path', '/tmp/tmp750m9yu7']
+[2024-02-11T02:00:15.075+0000] {standard_task_runner.py:88} INFO - Job 479: Subtask rename_txt_to_csv
+[2024-02-11T02:00:15.145+0000] {task_command.py:423} INFO - Running <TaskInstance: censoEnade.rename_txt_to_csv manual__2024-02-11T01:59:17.875132+00:00 [running]> on host 7e5b5e202339
+[2024-02-11T02:00:15.257+0000] {taskinstance.py:2480} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Néfi Fernandes' AIRFLOW_CTX_DAG_ID='censoEnade' AIRFLOW_CTX_TASK_ID='rename_txt_to_csv' AIRFLOW_CTX_EXECUTION_DATE='2024-02-11T01:59:17.875132+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-02-11T01:59:17.875132+00:00'
+[2024-02-11T02:00:15.259+0000] {taskinstance.py:2698} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/taskinstance.py", line 433, in _execute_task
+    result = execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 199, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 216, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/censoEnade.py", line 95, in rename_txt_to_csv
+    raise FileNotFoundError(f'O arquivo {input_file} não foi encontrado.')
+FileNotFoundError: O arquivo /opt/***/dataset/diretorio_de_selecao/microdados2021_arq1.txt não foi encontrado.
+[2024-02-11T02:00:15.272+0000] {taskinstance.py:1138} INFO - Marking task as FAILED. dag_id=censoEnade, task_id=rename_txt_to_csv, execution_date=20240211T015917, start_date=20240211T020015, end_date=20240211T020015
+[2024-02-11T02:00:15.288+0000] {standard_task_runner.py:107} ERROR - Failed to execute job 479 for task rename_txt_to_csv (O arquivo /opt/***/dataset/diretorio_de_selecao/microdados2021_arq1.txt não foi encontrado.; 1320)
+[2024-02-11T02:00:15.327+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 1
+[2024-02-11T02:00:15.346+0000] {taskinstance.py:3280} INFO - 0 downstream tasks scheduled from follow-on schedule check
